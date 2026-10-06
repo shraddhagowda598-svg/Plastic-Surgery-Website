@@ -1,0 +1,867 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #ffffff;
+    color: #26352d;
+}
+
+/* =================================
+   MYTHS Hero Animation
+================================= */
+
+.hero h1 span {
+    display: block;
+    margin-top: 15px;
+
+    font-size: 40px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.7);
+
+    min-height: 110px;
+    overflow: hidden;
+}
+
+
+#myth-text {
+    display: block;
+    color: #667d68;
+    font-style: italic;
+
+    text-shadow: 
+    0 0 5px #fff, 
+    0 0 15px #fff,
+    3px 8px 8px #667d68;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease;
+}
+
+
+/* Old text moves UP and fades out */
+
+#myth-text.myth-out {
+    opacity: 0;
+
+    /* transform: translateY(45px); */
+    transform: translateY(5px);
+}
+
+
+/* New text starts BELOW */
+
+#myth-text.myth-in {
+    opacity: 0;
+
+    transform: translateY(-45px);
+}
+
+/* =================================
+   MYTHS SECTION
+================================= */
+
+.myths-section {
+    width: 100%;
+    /* padding: 100px 9%; */
+    padding: 50px 7% 10%;
+    background: linear-gradient(to bottom, white, #ecf6e9,white);
+}
+
+
+/* =================================
+   SECTION HEADING
+================================= */
+
+.myths-heading {
+    /* text-align: center; */
+    max-width: 850px;
+    margin-bottom: 55px;
+}
+
+.myths-heading > span {
+    display: block;
+
+    margin: 20px 0;
+
+    color: #3b9464;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+}
+
+.myths-heading h2 {
+    margin: 0;
+
+    font-family: "Playfair Display SC", Georgia, "Times New Roman", serif;
+
+    font-size: 38px;
+    line-height: 1.15;
+
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.myths-heading p {
+    margin-top: 18px;
+
+    font-size: 18px;
+    line-height: 1.6;
+
+    color: rgba(0, 0, 0, 0.65);
+}
+
+
+/* =================================
+   MYTH GRID
+================================= */
+
+.myths-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px 50px;
+
+    /* max-width: 1200px; */
+
+}
+
+
+/* =================================
+   MYTH CARD
+================================= */
+
+.myth-card {
+
+    position: relative;
+
+    height: 300px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.myth-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =================================
+   CARD IMAGE
+================================= */
+
+.myth-card img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.myth-card:hover img {
+
+    transform: scale(1.04);
+
+}
+
+
+/* =================================
+   FOGGY WHITE BOTTOM
+================================= */
+
+.myth-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 55%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0.55) 25%,
+            rgba(255,255,255,0.92) 65%,
+            #ffffff 100%
+        );
+
+    /* background: linear-gradient(to bottom, transparent, #cfecdb); */
+    pointer-events: none;
+}
+
+
+/* =================================
+   CARD CONTENT
+================================= */
+
+.myth-card-content {
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 25px;
+    right: 25px;
+    bottom: 22px;
+}
+
+
+.myth-number {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #3b9464;
+}
+
+
+.myth-card h3 {
+
+    margin: 0;
+
+    font-family: "Playfair Display SC", Georgia, "Times New Roman", serif;
+
+    font-size: 22px;
+
+    line-height: 1.2;
+
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* =================================
+   RESPONSIVE - MYTHS Grid
+================================= */
+@media (max-width: 1024px) {
+
+    .myths-section {
+        padding: 40px 6% 10%;
+    }
+
+    .myths-heading {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .myths-heading h2 {
+        font-size: 32px;
+    }
+
+    .myths-heading p {
+        font-size: 16px;
+    }
+
+    /* 2 cards per row on tablet */
+    .myths-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .myth-card {
+        height: 260px;
+    }
+
+    .myth-card-content {
+        left: 20px;
+        right: 20px;
+        bottom: 18px;
+    }
+
+    .myth-card h3 {
+        font-size: 19px;
+    }
+
+    .myth-number {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .myths-section {
+        padding: 35px 5% 8%;
+    }
+
+    .myths-heading span {
+        font-size: 14px;
+    }
+
+    .myths-heading h2 {
+        font-size: 26px;
+    }
+
+    .myths-heading p {
+        font-size: 14.5px;
+    }
+
+    /* 1 card per row on mobile */
+    .myths-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .myth-card {
+        height: 240px;
+    }
+
+    .myth-card-content {
+        left: 18px;
+        right: 18px;
+        bottom: 16px;
+    }
+
+    .myth-card h3 {
+        font-size: 18px;
+    }
+
+    .myth-number {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .myth-card {
+        height: 220px;
+    }
+
+    .myth-card h3 {
+        font-size: 16.5px;
+    }
+
+    .myths-heading h2 {
+        font-size: 22px;
+    }
+}
+
+
+
+
+/* =================================
+   OVERLAY
+================================= */
+
+.myth-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background:
+        rgba(15, 28, 23, 0.78);
+
+    backdrop-filter: blur(7px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+
+.myth-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =================================
+   EXPANDED MODAL
+================================= */
+
+.myth-modal {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 43% 57%;
+
+    width: min(1100px, 90vw);
+
+    height: min(600px, 82vh);
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35);
+
+    transform: scale(0.55) rotateY(-180deg);
+
+    opacity: 0;
+
+    transition:
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.4s ease;
+}
+
+
+.myth-overlay.active .myth-modal {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* =================================
+   MODAL IMAGE
+================================= */
+
+.myth-modal-image {
+
+    position: relative;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #e9eeee;
+}
+
+
+.myth-modal-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =================================
+   IMAGE FOG
+================================= */
+
+.modal-image-fog {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 90px 40px 40px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0.15) 15%,
+            rgba(255,255,255,0.82) 55%,
+            #ffffff 100%
+        );
+
+    /* background: linear-gradient(to bottom, transparent, #cfecdb); */
+
+}
+
+
+.modal-image-fog span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+
+    color: #3b9464;
+}
+
+
+.modal-image-fog h2 {
+
+    margin: 0;
+
+    font-family: "Playfair Display SC", Georgia, serif;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* =================================
+   TRUTH CONTENT
+================================= */
+
+.myth-modal-content {
+
+    position: relative;
+
+    padding: 55px 55px 45px;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f7fbf8 100%
+        );
+}
+
+
+.truth-label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+
+    color: #3b9464;
+}
+
+
+.myth-modal-content > h2 {
+
+    margin: 0 50px 25px 0;
+
+    font-family:
+        "Playfair Display SC",
+        Georgia,
+        serif;
+
+    font-size: 35px;
+
+    line-height: 1.2;
+
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+#modal-truth-content p {
+
+    margin: 0 0 18px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: rgba(0, 0, 0, 0.72);
+}
+
+
+/* =================================
+   TRUTH NOTE
+================================= */
+
+.truth-note {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+    padding: 18px;
+
+    border: 1px solid rgba(49, 147, 99, 0.20);
+
+    border-radius: 12px;
+
+    background:
+        rgba(49, 147, 99, 0.07);
+}
+
+
+.truth-note-icon {
+
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #3b9464;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+.truth-note p {
+
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #244536;
+}
+
+
+/* =================================
+   CLOSE BUTTON
+================================= */
+
+.myth-close {
+
+    position: fixed;
+
+    top: 22px;
+    right: 30px;
+
+    z-index: 5;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(49, 147, 99, 0.4);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.9);
+
+    color: #173f2d;
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.myth-close:hover {
+
+    background: #3b9464;
+
+    color: white;
+
+    transform: rotate(90deg);
+}
+
+
+
+/* =================================
+   RESPONSIVE - MYTH MODAL
+================================= */
+@media (max-width: 1024px) {
+
+    .myth-overlay {
+        padding: 15px;
+        align-items: center;
+    }
+
+    .myth-modal {
+        grid-template-columns: 1fr;
+        grid-template-rows: 500px auto;
+        width: 80%;
+        /* max-width: 100%; */
+        height: auto;
+        max-height: calc(100vh - 30px);
+        /* border-radius: 15px; */
+    }
+
+    /* IMAGE - fixed height, no scroll */
+    .myth-modal-image {
+        height: 500px;
+        min-height: 500px;
+        overflow: hidden;
+    }
+
+    .modal-image-fog {
+        padding: 60px 25px 20px;
+    }
+
+    .modal-image-fog span {
+        font-size: 14px;
+    }
+
+    .modal-image-fog h2 {
+        font-size: 24px;
+    }
+
+    /* CONTENT - scrolls only if it exceeds remaining space */
+    .myth-modal-content {
+        padding: 30px 25px 35px;
+        overflow-y: auto;
+        min-height: 0; /* required so grid child can actually scroll instead of stretching modal */
+    }
+
+    .truth-label {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .myth-modal-content > h2 {
+        font-size: 26px;
+        margin: 0 40px 18px 0;
+    }
+
+    #modal-truth-content p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+    }
+
+    .truth-note {
+        padding: 14px;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .truth-note-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .truth-note p {
+        font-size: 14px;
+    }
+
+    .myth-close {
+        top: 22px;
+        right: 22px;
+        width: 38px;
+        height: 38px;
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .myth-overlay {
+        padding: 0;
+    }
+
+    .myth-modal {
+        max-height: 100vh;
+        /* border-radius: 0; */
+        grid-template-rows: 280px auto;
+    }
+
+    .myth-modal-image {
+        height: 280px;
+        min-height: 280px;
+    }
+
+    .modal-image-fog {
+        padding: 45px 18px 16px;
+    }
+
+    .modal-image-fog h2 {
+        font-size: 20px;
+    }
+
+    .myth-modal-content {
+        padding: 25px 18px 30px;
+    }
+
+    .myth-modal-content > h2 {
+        font-size: 21px;
+        margin: 0 30px 14px 0;
+    }
+
+    #modal-truth-content p {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .myth-close {
+        top: 14px;
+        right: 14px;
+    }
+}

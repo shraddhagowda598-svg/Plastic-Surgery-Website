@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #ffffff;
+    color: #26352d;
+}
+
+
+/* ====================
+    hero
+====================== */
+/* =================================
+   ARTICLE CATEGORY & DATE
+================================= */
+
+.article-category {
+    display: inline-block;
+    margin-right: 18px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3a9561;
+    text-transform: uppercase;
+}
+
+.article-date {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* ====================
+    article-section 
+====================== */
+
+.article-section {
+    width: 100%;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: start;
+    background: linear-gradient(to bottom, rgba(246, 246, 244, 0.3), rgba(219, 243, 229, 0.5), rgba(255, 255, 255, 1));
+}
+
+/* Sidebar in article-section (article-sidebar)*/
+.article-sidebar {
+    padding-top: 10px;
+    box-shadow: 0 15px 30px rgba(47, 108, 75, 0.13);
+    align-self: start;
+    position: sticky;
+    top: 30px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.article-sidebar h2 {
+    margin: 0 0 5px;
+    padding: 12px 14px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #3b9464;
+}
+
+.article-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.article-nav-item {
+    width: 100%;
+    padding: 18px 16px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    color: #707a73;
+    font-size: 15px;
+    line-height: 1.5;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Sidebar button hover effect */
+.article-nav-item:hover {
+    color: #3b9464;
+    background: #f5f8f6;
+}
+
+/* Sidebar button active */
+.article-nav-item.active {
+    color: #3b9464;
+    background: #f5f8f6;
+    border-left-color: #3b9464;
+    font-weight: 600;
+}
+
+/* Content in article-section (article-content)*/
+.article-content {
+    padding: 20px 70px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(47, 108, 75, 0.13);
+    background-color: white;
+}
+
+.article-panel h2 {
+    margin: 0 0 20px;
+    font-family: "Playfair Display SC", Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: #26352d;
+}
+
+.article-panel p {
+    margin: 0 0 18px;
+    color: #66736c;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Content in .article-content */
+
+.article-panel {
+    display: none;
+}
+
+.article-panel.active {
+    display: block;
+}
+
+.article-panel h3 {
+    margin: 35px 0 16px;
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #26352d;
+}
+
+.article-panel ul,
+.article-panel ol {
+    margin: 0 0 28px;
+    padding-left: 28px;
+}
+
+.article-panel li {
+    margin-bottom: 12px;
+    color: #66736c;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.article-panel ol li::marker,
+.article-panel ul li::marker {
+    font-weight: 700;
+    color: #26352d;
+}
+
+.article-panel strong {
+    color: #26352d;
+    font-weight: 500;
+}
+
+/* Routine Reminder */
+
+.routine-reminder {
+    margin: 40px 0px;
+    padding: 25px 30px;
+    background: #e5f5e9;
+    border-left: 4px solid #3b9464;
+    border-radius: 15px;
+}
+
+.routine-reminder h3 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    color: #3b9464;
+}
+
+.routine-reminder p {
+    margin-bottom: 12px;
+}
+
+.routine-reminder p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Check List */
+
+.article-checklist {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+.article-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+.check-icon {
+    flex-shrink: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: #3b9464;
+}
+
+/* =================================
+   ARTICLE SECTION TRANSITION
+================================= */
+
+#article-content-container {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Current section leaving */
+
+#article-content-container.section-changing {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+
+/* New section entering */
+
+#article-content-container.section-enter {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+
+/* ================================
+   KEY TAKEAWAYS
+================================ */
+
+.key-takeaways {
+    width: 100%;
+    padding: 80px 70px;
+    background: linear-gradient(to bottom, rgba(246, 246, 244, 0.3), rgba(219, 243, 229, 0.5), rgba(255, 255, 255, 1));
+}
+
+
+/* Heading */
+
+.takeaways-heading {
+    max-width: 800px;
+    margin-bottom: 45px;
+}
+
+.takeaways-heading span {
+    display: block;
+    margin-bottom: 12px;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: #3b9464;
+}
+
+.takeaways-heading h2 {
+    margin: 0 0 15px;
+
+    font-family: "Playfair Display SC",Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: #26352d;
+}
+
+.takeaways-heading p {
+    margin: 0;
+
+    color: #707a73;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* Takeaway cards */
+
+.takeaways-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+
+.takeaway-card {
+    position: relative;
+    padding: 32px 35px;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 3px solid white;
+    box-shadow: 0 15px 30px rgba(47, 108, 75, 0.10);
+    transition: scale 0.3s ease-in, background 0.3s ease-in, box-shadow 0.35s ease;
+
+    text-align: justify;
+}
+
+
+.takeaway-card:hover {
+    /* transform: translateY(-4px); */
+    background: linear-gradient(to left , white ,#cfecdb);
+    scale: 1.015;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Number */
+
+.takeaway-number {
+    display: block;
+    margin-bottom: 18px;
+    font-family: "Playfair Display SC",Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #3b9464;
+}
+
+
+/* Card heading */
+
+.takeaway-card h3 {
+    margin: 0 0 12px;
+
+    /* font-family: "Playfair Display SC",Georgia, "Times New Roman", serif; */
+    font-size: 23px;
+    line-height: 1.4;
+    font-weight: 500;
+
+    color: #26352d;
+}
+
+
+/* Card paragraph */
+
+.takeaway-card p {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.75;
+
+    color: #707a73;
+}
+
+
+/* Important note */
+
+.takeaway-note {
+    display: flex;
+    gap: 25px;
+
+    margin-top: 40px;
+    padding: 35px;
+
+    background: #e5f5e9;
+
+    border-left: 4px solid #3b9464;
+    border-radius: 8px;
+}
+
+
+/* Important label */
+
+.note-label {
+    flex-shrink: 0;
+
+    padding-top: 5px;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+
+    color: #3b9464;
+}
+
+
+/* Note content */
+
+.note-content h3 {
+    margin: 0 0 8px;
+
+    /* font-family: "Playfair Display SC", Georgia, "Times New Roman", serif; */
+    font-size: 23px;
+    font-weight: 500;
+
+    color: #26352d;
+}
+
+.note-content p {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: #707a73;
+}
+
+/* =================================
+   SPECIALIST NOTE
+================================= */
+
+.specialist-note {
+    width: 100%;
+    padding: 30px 70px 80px;
+}
+
+
+.specialist-note-inner {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    /* gap: 50px; */
+
+    background: linear-gradient(to bottom , white,#cfecdb);
+    border-radius: 20px;
+
+    padding: 45px 80px;
+
+    box-shadow: 0 15px 30px rgba(47, 108, 75, 0.15);
+}
+
+
+/* Label */
+
+.specialist-note-label {
+    padding-top: 7px;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+
+    color: #3b9464;
+}
+
+
+/* Content */
+
+/* .specialist-note-content {
+    max-width: 850px;
+} */
+
+
+.specialist-note-content h2 {
+    margin: 0 0 22px;
+
+    font-family: "Playfair Display SC", Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+
+.specialist-note-content p {
+    margin: 0 0 18px;
+
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: justify;
+}
+
+
+/* Reminder */
+
+.specialist-note-reminder {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    margin: 28px 0;
+    padding: 20px 22px;
+
+    border: 3px solid #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(47, 108, 75, 0.13);
+}
+
+
+.specialist-note-reminder strong {
+    flex-shrink: 0;
+    font-size: 15px;
+    color: #3b9464;
+}
+
+
+.specialist-note-reminder span {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: justify;
+}
+
+/* ================================
+   RELATED RESOURCES
+================================ */
+
+.related-resources {
+    width: 100%;
+    padding: 0px 80px;
+    margin: 80px 0;
+    background: linear-gradient(to bottom, rgba(246, 246, 244, 0.3), rgba(219, 243, 229, 0.5), rgba(255, 255, 255, 1));
+}
+
+
+/* Related Resources Heading */
+
+.related-resources-heading {
+    max-width: 750px;
+    margin-bottom: 45px;
+}
+
+.related-resources-heading span {
+    display: block;
+    margin-bottom: 12px;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+
+    color: #3b9464;
+}
+
+.related-resources-heading h2 {
+    margin: 0 0 15px;
+
+    font-family: "Playfair Display SC",Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 500;
+
+    color: #26352d;
+}
+
+.related-resources-heading p {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    color: #707a73;
+}
+
+
+/* Related Resources Cards Layout */
+
+.related-resources-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
